@@ -75,16 +75,20 @@ const styles = {
 
 
 // email state.auth.email osa auth viittaa reducers/index.js fileen ja email AuthReducers fileen
-const mapStateToProps = state => {
+const mapStateToProps = ({ auth }) => {
 // voisi refaktoroida niin että yläpuolella oleva state -> ({ auth })	
 // ja returnin päälle luodaan. const { email, password, error } = auth;
 // silloin returnit lyhenee
-	return {
-		email: state.auth.email,
-		password: state.auth.password,
-		error: state.auth.error,
-		loading: state.auth.loading
-	};
+
+//	return {
+//		email: state.auth.email,
+//		password: state.auth.password,
+//		error: state.auth.error,
+//		loading: state.auth.loading
+//	};
+	const { email, password, error, loading } = auth;
+
+	return { email, password, error, loading };
 };
 
 export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(LoginForm);

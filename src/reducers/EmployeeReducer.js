@@ -5,9 +5,9 @@ import {
 const INITIAL_STATE = {};
 
 export default (state = INITIAL_STATE, action) => {
+	console.log('tuleeko', action);
 	switch (action.type) {
 		case EMPLOYEES_FETCH_SUCCESS:
-		console.log(action);
 			return action.payload;
 		default:
 			return state;
